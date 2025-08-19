@@ -1,0 +1,695 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+   background: linear-gradient(to top, #f5f5f5, #fafafa);
+  /* Light background for contrast */
+  color: #333;
+  /* Dark text for readability */
+  font-family: 'Bebas Neue', sans-serif;
+
+}
+
+
+/* Masonry Layout */
+.gallery-masonry {
+  column-count: 4;
+  column-gap: 2.5rem;
+  padding: 30px 20px;
+  margin: 3rem;
+
+}
+
+/* Gallery Item */
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-item.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .gallery-masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-masonry {
+    column-count: 1;
+  }
+}
+
+.gallery-header {
+  background: transparent;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.2rem;
+  color: #f5f5f5;
+  /* Light text color for readability */
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 20px;
+  padding: 20px 20px;
+}
+
+
+
+.logo-box {
+  flex: 1;
+  text-align: left;
+  perspective: 600px;
+  /* 3D effect for children */
+}
+.logo-box .logo {
+  transition: transform 0.5s cubic-bezier(.25,.8,.25,1);
+  will-change: transform;
+  max-width: 80px;
+  height: auto;
+  width: auto;
+  transition: all 0.9s ease;
+}
+.logo-box:hover .logo {
+  transition: transform 1.2s cubic-bezier(.25,.8,.25,1);
+  transform: rotateY(25deg) scale(1.25);
+  transition: all 0.9s ease;
+}
+
+.title-box {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
+.main-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: #000;
+  letter-spacing: 1px;
+  margin-top: 3rem;
+}
+
+
+
+
+
+/* Filter Buttons */
+.filter-buttons {
+  top: 0;
+  z-index: 999;
+  /* lower than lightbox */
+
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: end;
+  margin-top: 2rem;
+}
+
+
+.filter-buttons button {
+  padding: 8px 26px;
+  background-color: #FAFAFA;
+  color: #333;
+
+  border: 2px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.9s ease;
+}
+
+
+
+.filter-buttons button:hover {
+  border-color: #FFD700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.18);
+  transform: scale(1.05);
+  transition: all 0.9s ease;
+}
+
+.filter-buttons button.active {
+  background-color: #FFD700;
+  color: #333;
+  border-color: #FFD700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.18);
+}
+
+/* Dropdown for Mobile */
+.filter-dropdown {
+  display: none;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.filter-dropdown select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: #444;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .filter-buttons {
+    display: none;
+    ;
+  }
+
+  .filter-dropdown {
+    display: block;
+  }
+}
+
+
+.card-box {
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  border-radius: 16px;
+  overflow: hidden;
+  /* This clips the image corners! */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  padding: 0;
+  /* Remove padding to avoid thick edges */
+
+  /* ✅ Multi-layered 3D shadow */
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    /* soft top/side */
+    0 10px 10px rgba(0, 0, 0, 0.1);
+  /* deeper bottom */
+}
+
+.card-box:hover {
+  transform: translateY(-6px);
+
+  /* ✅ Enhanced 3D shadow on hover */
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 10px rgba(0, 0, 0, 0.1);
+  cursor: zoom-in;
+}
+
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-img {
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  /* Let the card-box handle rounding */
+  box-shadow: none;
+  height: auto;
+  /* maintain natural aspect ratio */
+  object-fit: cover;
+  /* keeps images nicely filled if containers have fixed sizes */
+}
+
+.name {
+  display: inline-block;
+  padding: 10px 40px;
+  border-radius: 4px;
+  background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  color: #333333;
+  margin-top: 12px;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  letter-spacing: 1px;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    /* subtle soft shadow below */
+    0 0 6px rgba(255, 255, 255, 0.3);
+  /* slight white glow around */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80vh;
+  margin-bottom: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
+  /* Smooth zoom */
+  cursor: zoom-in;
+}
+
+.lightbox-img.show {
+  opacity: 1;
+}
+
+.lightbox-img.zoomed {
+  transform: scale(1.7);
+  /* Zoom level */
+  cursor: zoom-out;
+}
+
+
+
+
+
+
+.lightbox .close {
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 10000;
+color: #ff0000;
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 8px;
+  padding: 2px 20px;
+  text-shadow: 0 2px 8px #000;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.7);
+  transition: all 0.4s ease;
+}
+
+.lightbox .close:hover{
+  background: #ff0000;
+  color: #ffffff;
+  transition: all 0.4s ease;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 8px;
+  padding: 12px 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.7);
+  text-shadow: 0 2px 8px #000;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+/* Hover Effect */
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.45);
+
+  color: #fff;
+  padding: 18px 75px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.image-container:hover .hover-title {
+  opacity: 1;
+}
+
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #0a0a0a;
+  color: #f5f5f5;
+  padding: 10px 15px;
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+}
+
+#backToTop:hover {
+  transition: color 0.3s ease;
+  color: #FFD700;
+  /* Gold color on hover */
+}
+
+#backToTop.show {
+  display: block;
+}
+
+.load-more-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+#loadMore {
+  padding: 12px 100px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  background-color: #FFD700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.9s ease;
+  display: block;
+  /* makes it take full width for centering */
+  margin: 30px auto;
+}
+
+#loadMore:hover {
+  border: 2px solid #000;
+  color: #444444;
+  /* Dark text for contrast */
+  transition: all 0.9s ease;
+  transform: scale(1.05);
+}
+
+.site-footer {
+  background: linear-gradient(to left, #e0e0e0, #cccccc, #b8b8b8);
+  padding: 30px 10px;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 14px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.45);
+  /* Hard shadow on top of footer */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-text {
+  font-family: 'Poppins', sans-serif;
+  color: #444444;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.footer-subtext {
+  font-family: 'Poppins', sans-serif;
+  color: #555555;
+  font-size: 0.95rem;
+}
+
+.footer-subtext .highlight {
+  color: #FFD700;
+  /* Gold color */
+  font-weight: 900;
+  font-size: 20px;
+  text-shadow: 3px 3px 5px #1a1a1a;
+}
+
+.footer-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.highlight {
+  color: #FFD700;
+  /* Gold color */
+  font-weight: 900;
+  font-size: 40px;
+  text-shadow: 3px 3px 10px #444444;
+  letter-spacing: 2px;
+}
+
+.darkmode-toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+}
+
+#darkModeToggle {
+  background: transparent;
+  color: #FFD700;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  padding: 10px 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  margin-top: 2rem;
+  transform: scale(1.1);
+  transition: all 0.9s ease;
+}
+
+#darkModeToggle:hover {
+  background: #FFD700;
+  color: #000;
+  transform: scale(1.25);
+  transition: all 0.9s ease;
+}
+
+body.darkmode {
+  background: linear-gradient(to bottom, #101214, #181b1f, #1f2327);
+  background-attachment: fixed;
+  color: #f5f5f5;
+}
+
+body.darkmode .gallery-header {
+  background: transparent;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.85);
+  /* Hard shadow */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #f5f5f5;
+}
+
+
+body.darkmode .card-box {
+  background: transparent !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.2rem;
+  color: #f5f5f5;
+}
+
+
+body.darkmode .filter-buttons button {
+  background: transparent;
+  color: #FFD700;
+  border: 1px solid #cccccc97;
+}
+
+body.darkmode .filter-buttons button:hover {
+
+  color: gold;
+  border-color: #ccc;
+}
+
+body.darkmode .filter-buttons button.active {
+  background: #FFD700;
+  color: #000;
+  border-color: gold;
+}
+
+
+
+body.darkmode .filter-dropdown {
+  background: rgba(20, 20, 20, 0.6);
+  /* soft glassy background */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  /* lighter, spread shadow */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* softer border */
+  border-radius: 10px;
+  /* smooth rounded edges */
+  padding: 0.6rem 1rem;
+  color: #f5f5f5;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* Add hover effect for interaction */
+body.darkmode .filter-dropdown:hover {
+  background: rgba(30, 30, 30, 0.75);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.75);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+
+
+body.darkmode #backToTop {
+  background: transparent !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #f5f5f5;
+}
+
+body.darkmode #backToTop:hover {
+
+
+  color: #FFD700;
+}
+/* Dark mode for hover-title */
+body.darkmode .hover-title {
+  background: rgba(30, 30, 30, 0.65);
+  color: #fff;
+  text-shadow: 0 2px 8px #000;
+}
+
+/* Dark mode for gallery images */
+body.darkmode .gallery-img {
+  filter: brightness(0.92) contrast(1.08);
+  /* Slightly darken and boost contrast for visibility */
+}
+
+/* Dark mode for card-box hover */
+body.darkmode .card-box:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.95);
+}
+
+/* Dark mode for prev/next buttons in lightbox */
+body.darkmode .prev,
+body.darkmode .next {
+  color: #FFD700;
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 8px;
+  padding: 12px 24px;
+  text-shadow: 0 2px 8px #000;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.7);
+}
+
+/* Dark mode for lightbox close button */
+body.darkmode .lightbox .close {
+  color: #ff0000;
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 8px;
+  padding: 2px 20px;
+  text-shadow: 0 2px 8px #000;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.7);
+  transition: all 0.4s ease;
+}
+
+body.darkmode .lightbox .close:hover {
+  background: #ff0000;
+  color: #ffffff;
+  transition: all 0.4s ease;
+}
+body.darkmode #loadMore {
+  background: #FFD700;
+  color: #000;
+  transition: all 0.9s ease;
+}
+
+body.darkmode #loadMore:hover {
+  border-color: #ccccccc7 !important;
+  transition: all 0.9s ease;
+   transform: scale(1.05);
+}
+
+body.darkmode .site-footer {
+  background: linear-gradient(to top, #1f2327, #262a2e, #2d3136);
+  color: #f5f5f5;
+}
+
+body.darkmode .footer-subtext {
+  color: #cccccca4 !important;
+}
+
+body.darkmode .footer-text {
+  color: #cccccce7 !important;
+}
+
+body.darkmode .main-title {
+  color: #ccc !important;
+  text-shadow: 0 2px 6px #555555;
+}
+
+body.darkmode .highlight {
+  color: #FFD700 !important;
+}
+
+body.darkmode .name {
+  color: #ccc;
+  text-shadow: 0 2px 6px #000;
+}

@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Picture Gallery</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+  </head>
+  <body>
+    <header class="gallery-header">
+      <div class="header-inner">
+        <!-- Logo -->
+        <div class="logo-box">
+          <a href="#home">
+            <img src="./assets/FAITH LOGO.png" alt="Gallery Logo" class="logo" />
+          </a>
+        </div>
+
+        <!-- Title -->
+        <div class="title-box" id="home">
+          <h1 class="main-title">
+            My <span class="highlight">Picture</span> Gallery
+          </h1>
+        </div>
+      </div>
+    </header>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button data-category="all" class="active">All</button>
+      <button data-category="home">Home</button>
+      <button data-category="flower">Flowers</button>
+      <button data-category="food">Foods</button>
+      <button data-category="city">City</button>
+      <button data-category="nature">Nature</button>
+    </div>
+
+    <!-- Filter Dropdown (Mobile) -->
+    <div class="filter-dropdown">
+      <select id="filterSelect">
+        <option value="all">All</option>
+        <option value="home">Home</option>
+        <option value="flower">Flowers</option>
+        <option value="food">Foods</option>
+        <option value="city">City</option>
+        <option value="nature">Nature</option>
+      </select>
+    </div>
+
+    <section class="gallery-wrapper observe-section" id="gallery">
+      <div class="gallery-masonry" id="gallery">
+        <!-- Images -->
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/1.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Tree"
+              />
+              <div class="hover-title">Zinnia</div>
+            </div>
+          </div>
+          <p class="name">Zinnia</p>
+        </div>
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food1.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Tree"
+              />
+              <div class="hover-title">Pancakes</div>
+            </div>
+          </div>
+          <p class="name">Pancakes</p>
+        </div>
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city1.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Cityscape"
+              />
+              <div class="hover-title">Tower</div>
+            </div>
+          </div>
+          <p class="name">Paris</p>
+        </div>
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature1.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Living Room"
+              />
+              <div class="hover-title">Village</div>
+            </div>
+          </div>
+          <p class="name">Cows</p>
+        </div>
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food2.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Salad</div>
+            </div>
+          </div>
+          <p class="name">Salad</p>
+        </div>
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature2.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Forest</div>
+            </div>
+          </div>
+          <p class="name">Forest</p>
+        </div>
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home2.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Kitchen</div>
+            </div>
+          </div>
+          <p class="name">Kitchen</p>
+        </div>
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city2.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Dubai</div>
+            </div>
+          </div>
+          <p class="name">Dubai</p>
+        </div>
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/2.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Marigold</div>
+            </div>
+          </div>
+          <p class="name">Marigold</p>
+        </div>
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature3.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Leopard</div>
+            </div>
+          </div>
+          <p class="name">Leopard</p>
+        </div>
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home3.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Sitting Room</div>
+            </div>
+          </div>
+          <p class="name">Sitting Room</p>
+        </div>
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food3.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Fried Fish</div>
+            </div>
+          </div>
+          <p class="name">Fried Fish</p>
+        </div>
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city3.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">London</div>
+            </div>
+          </div>
+          <p class="name">London</p>
+        </div>
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/3.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Lily</div>
+            </div>
+          </div>
+          <p class="name">Lily</p>
+        </div>
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home4.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Bathroom</div>
+            </div>
+          </div>
+          <p class="name">Bathroom</p>
+        </div>
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature5.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Fruit</div>
+            </div>
+          </div>
+          <p class="name">Fruit</p>
+        </div>
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/5.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Camellia</div>
+            </div>
+          </div>
+          <p class="name">Camellia</p>
+        </div>
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food5.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Burger</div>
+            </div>
+          </div>
+          <p class="name">Burger</p>
+        </div>
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home5.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Laundry</div>
+            </div>
+          </div>
+          <p class="name">Laundry</p>
+        </div>
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city5.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Italy</div>
+            </div>
+          </div>
+          <p class="name">Italy</p>
+        </div>
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature6.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Greenery</div>
+            </div>
+          </div>
+          <p class="name">Grass</p>
+        </div>
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/6.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Hibiscus</div>
+            </div>
+          </div>
+          <p class="name">Hibiscus</p>
+        </div>
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home6.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Swimming Pool</div>
+            </div>
+          </div>
+          <p class="name">Pool</p>
+        </div>
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food6.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Pizza</div>
+            </div>
+          </div>
+          <p class="name">Pizza</p>
+        </div>
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city6.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Europe</div>
+            </div>
+          </div>
+          <p class="name">Europe</p>
+        </div>
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/7.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Orchid</div>
+            </div>
+          </div>
+          <p class="name">Orchid</p>
+        </div>
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature7.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Water Falls</div>
+            </div>
+          </div>
+          <p class="name">Water Falls</p>
+        </div>
+
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home7.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Wine Rack</div>
+            </div>
+          </div>
+          <p class="name">Wine Rack</p>
+        </div>
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food7.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Jollof Rice</div>
+            </div>
+          </div>
+          <p class="name">Rice</p>
+        </div>
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city7.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Ghana</div>
+            </div>
+          </div>
+          <p class="name">Ghana</p>
+        </div>
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature8.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Ice Sea</div>
+            </div>
+          </div>
+          <p class="name">Blue Sea</p>
+        </div>
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/8.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Daisy</div>
+            </div>
+          </div>
+          <p class="name">Daisy</p>
+        </div>
+
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food8.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Pasta</div>
+            </div>
+          </div>
+          <p class="name">Pasta</p>
+        </div>
+
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home8.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Home Office</div>
+            </div>
+          </div>
+          <p class="name">Home Office</p>
+        </div>
+
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city8.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Portharcourt</div>
+            </div>
+          </div>
+          <p class="name">Portharcourt</p>
+        </div>
+
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/9.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Lotus</div>
+            </div>
+          </div>
+          <p class="name">Lotus</p>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature9.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Big Whale</div>
+            </div>
+          </div>
+          <p class="name">Whale</p>
+        </div>
+
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food9.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Fruits Salad</div>
+            </div>
+          </div>
+          <p class="name">Fruits Salad</p>
+        </div>
+
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home9.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Store</div>
+            </div>
+          </div>
+          <p class="name">Store</p>
+        </div>
+
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city9.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Amsterdam</div>
+            </div>
+          </div>
+          <p class="name">Amsterdam</p>
+        </div>
+
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food10.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Sharwama</div>
+            </div>
+          </div>
+          <p class="name">Sharwama</p>
+        </div>
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food11.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Plaintain & Fish</div>
+            </div>
+          </div>
+          <p class="name">Bole</p>
+        </div>
+
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home10.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Reception Room</div>
+            </div>
+          </div>
+          <p class="name">Reception Room</p>
+        </div>
+
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city10.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">New York</div>
+            </div>
+          </div>
+          <p class="name">New York</p>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature10.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Turtle</div>
+            </div>
+          </div>
+          <p class="name">Turtle</p>
+        </div>
+
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/10.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Rose</div>
+            </div>
+          </div>
+          <p class="name">Rose</p>
+        </div>
+
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food12.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Chicken Pepersoup</div>
+            </div>
+          </div>
+          <p class="name">Peppersoup</p>
+        </div>
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food4.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Noodles</div>
+            </div>
+          </div>
+          <p class="name">Noodles</p>
+        </div>
+
+        <div class="gallery-item" data-category="food">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/food13.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Egwusi soup and Eba</div>
+            </div>
+          </div>
+          <p class="name">Egwusi soup</p>
+        </div>
+
+        <div class="gallery-item" data-category="city">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/city4.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Nigeria</div>
+            </div>
+          </div>
+          <p class="name">Nigeria</p>
+        </div>
+        <div class="gallery-item" data-category="flower">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/4.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Lavender</div>
+            </div>
+          </div>
+          <p class="name">Lavender</p>
+        </div>
+
+        <div class="gallery-item" data-category="home">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/home1.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Bedroom</div>
+            </div>
+          </div>
+          <p class="name">Bedroom</p>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <div class="card-box">
+            <div class="image-container">
+              <img
+                src="./assets/nature4.png"
+                class="gallery-img"
+                loading="lazy"
+                alt="Flower"
+              />
+              <div class="hover-title">Lion</div>
+            </div>
+          </div>
+          <p class="name">Lion</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="load-more-container">
+      <button id="loadMore">Load More</button>
+    </div>
+    <!-- Lightbox Overlay -->
+    <div class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-img" src="" alt="Large image" />
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        <p class="footer-text">© 2025 Picture Gallery. All rights reserved.</p>
+        <p class="footer-subtext">
+          Designed with love by <span class="highlight">Faith</span>.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Dark/Light Mode Toggle Button -->
+    <div class="darkmode-toggle-container">
+      <button id="darkModeToggle" title="Toggle dark/light mode">🌙</button>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top">&#8679;</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
